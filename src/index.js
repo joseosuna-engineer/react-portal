@@ -10,7 +10,9 @@ class Button extends React.Component {
   }
   render(){
     return(
-      <button type="submit">{this.props.label}</button>
+      <div>
+        <button type="submit" className="btn btn-lg btn-primary btn-block">{this.props.label}</button>
+      </div>
     );
   }
 }
@@ -24,12 +26,14 @@ class PassInput extends React.Component {
   }
     render(){
       return(
-        <input type="password" placeholder={this.state.label} />
+        <div>
+          <input type="password" className="form-control" placeholder={this.state.label} required />
+        </div>
       );
     }
 }
 
-class TextInput extends React.Component {
+class EmailInput extends React.Component {
   constructor(props){
     super(props);
     this.state={
@@ -38,24 +42,13 @@ class TextInput extends React.Component {
   }
     render(){
       return(
-        <input type="text" placeholder={this.state.label} />
+        <div>
+          <input type="email" className="form-control" placeholder={this.state.label} required autoFocus />
+        </div>
       );
     }
 }
 
-class LoginForm extends React.Component {
-  render(){
-    return(
-      <div>
-        <form>
-          <TextInput label="Correo electrónico" />
-          <PassInput label="Contraseña" />
-          <Button label="Iniciar sesión" />
-        </form>
-      </div>
-    );
-  }
-}
 
 class HeaderTitle extends React.Component {
   constructor(props){
@@ -66,7 +59,25 @@ class HeaderTitle extends React.Component {
   }
   render(){
     return(
-      <div><span>{this.state.label}</span></div>
+      <div>
+        <h2 className="form-signin-heading">{this.state.label}</h2>
+      </div>
+    );
+  }
+}
+
+
+class LoginForm extends React.Component {
+  render(){
+    return(
+      <div className="container">
+        <form className="form-signin">
+          <HeaderTitle label="Inicia sesión"/>
+          <EmailInput label="Correo electrónico" />
+          <PassInput label="Contraseña" />
+          <Button label="Iniciar sesión" />
+        </form>
+      </div>
     );
   }
 }
@@ -75,7 +86,6 @@ class LoginPage extends React.Component {
   render(){
     return(
       <div>
-        <HeaderTitle label="Inicia sesión en Prottonne"/>
         <LoginForm />
       </div>
     );
