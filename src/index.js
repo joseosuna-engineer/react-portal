@@ -122,7 +122,7 @@ class LoginPage extends React.Component {
     return(
       <div className="container">
         <Logo />
-        <HeaderTitle label="Inicia sesión"/>
+        <HeaderTitle label="Inicia sesión en Prottonne"/>
         <LoginForm />
       </div>
     );
