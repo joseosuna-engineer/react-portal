@@ -56,13 +56,34 @@ class PassInput extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      label:props.label
+      label:props.label,
+      user:{
+        password:''
+      }
     };
+    this.onChange = this.onChange.bind(this);
   }
+
+  onChange(e){
+    this.setState({
+      user: {
+        [e.target.name]: e.target.value
+      }
+    });
+    console.log("password: "+this.state.user.password);
+  }
+
     render(){
       return(
         <div>
-          <input type="password" className="form-control" placeholder={this.state.label} required />
+          <input
+            onChange={this.onChange}
+            type="password"
+            name="password"
+            className="form-control"
+            placeholder={this.state.label}
+            required
+          />
         </div>
       );
     }
@@ -72,13 +93,35 @@ class EmailInput extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      label:props.label
+      label:props.label,
+      user:{
+        email:''
+      }
     };
+    this.onChange = this.onChange.bind(this);
   }
+
+  onChange(e){
+    this.setState({
+      user: {
+        [e.target.name]: e.target.value
+      }
+    });
+    console.log("email: "+this.state.user.email);
+  }
+
     render(){
       return(
         <div>
-          <input type="email" className="form-control" placeholder={this.state.label} required autoFocus />
+          <input
+            onChange={this.onChange}
+            type="email"
+            name="email"
+            className="form-control"
+            placeholder={this.state.label}
+            required
+            autoFocus
+          />
         </div>
       );
     }
@@ -106,7 +149,6 @@ class LoginForm extends React.Component {
   render(){
     return(
       <div>
-
         <form className="form-signin">
           <EmailInput label="Correo electrónico" />
           <PassInput label="Contraseña" />
