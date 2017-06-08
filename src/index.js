@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import { createStore, combineReducers, bindActionCreators } from 'redux';
+import { Provider, connect } from 'react-redux';
 
-class Logo extends React.Component {
+class Logo extends Component {
   render(){
     return(
       <div>
@@ -36,7 +38,7 @@ class Logo extends React.Component {
   }
 }
 
-class Button extends React.Component {
+class Button extends Component {
   constructor(props){
     super(props);
     this.state={
@@ -52,7 +54,7 @@ class Button extends React.Component {
   }
 }
 
-class PassInput extends React.Component {
+class PassInput extends Component {
   constructor(props){
     super(props);
     this.state={
@@ -89,32 +91,18 @@ class PassInput extends React.Component {
     }
 }
 
-class EmailInput extends React.Component {
+class EmailInput extends Component {
   constructor(props){
     super(props);
     this.state={
-      label:props.label,
-      user:{
-        email:''
-      }
+      label:props.label
     };
-    this.onChange = this.onChange.bind(this);
   }
-
-  onChange(e){
-    this.setState({
-      user: {
-        [e.target.name]: e.target.value
-      }
-    });
-    console.log("email: "+this.state.user.email);
-  }
-
     render(){
       return(
         <div>
           <input
-            onChange={this.onChange}
+            onChange={()=>this.props.changeUser(this.props.user)}
             type="email"
             name="email"
             className="form-control"
@@ -128,7 +116,7 @@ class EmailInput extends React.Component {
 }
 
 
-class HeaderTitle extends React.Component {
+class HeaderTitle extends Component {
   constructor(props){
     super(props);
     this.state={
@@ -144,13 +132,14 @@ class HeaderTitle extends React.Component {
   }
 }
 
+let EmailInput2 = connect(mapStateToProps, matchDispatchToProps)(EmailInput);
 
-class LoginForm extends React.Component {
+class LoginForm extends Component {
   render(){
     return(
       <div>
         <form className="form-signin">
-          <EmailInput label="Correo electrónico" />
+          <EmailInput2 label="Correo electrónico" />
           <PassInput label="Contraseña" />
           <Button label="Iniciar sesión" />
         </form>
@@ -159,7 +148,7 @@ class LoginForm extends React.Component {
   }
 }
 
-class LoginPage extends React.Component {
+class LoginPage extends Component {
   render(){
     return(
       <div className="container">
@@ -171,10 +160,42 @@ class LoginPage extends React.Component {
   }
 }
 
+function userReducer() {
+  return {
+    email:'jose',
+    password:''
+  };
+};
+
+let allReducers = combineReducers({user:userReducer});
+let store = createStore(allReducers);
+
 const app = document.getElementById('root');
 
+function mapStateToProps(state){
+  return {
+    user:state.user
+  };
+}
+
+function changeUser(user){
+  console.log("email-log: ", user.email);
+  return{
+    type: 'USER_CHANGED',
+    payload: user
+  }
+}
+
+function matchDispatchToProps(dispatch){
+  return bindActionCreators({changeUser:changeUser},dispatch);
+}
+
+
+
 ReactDOM.render(
-  <LoginPage />
+  <Provider store={store}>
+    <LoginPage />
+  </Provider>
   ,
   app
 );
