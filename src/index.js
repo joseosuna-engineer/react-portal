@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, combineReducers, bindActionCreators } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import { Provider, connect } from 'react-redux';
 
 class Logo extends Component {
@@ -67,12 +67,7 @@ class PassInput extends Component {
   }
 
   onChange(e){
-    this.setState({
-      user: {
-        [e.target.name]: e.target.value
-      }
-    });
-    console.log("password: "+this.state.user.password);
+    this.props.setUserPass(e.target.value);
   }
 
     render(){
@@ -97,12 +92,17 @@ class EmailInput extends Component {
     this.state={
       label:props.label
     };
+    this.onChange = this.onChange.bind(this);
+  }
+
+  onChange(e){
+    this.props.setUserEmail(e.target.value);
   }
     render(){
       return(
         <div>
           <input
-            onChange={()=>this.props.actionChangeUser(this.props.user)}
+            onChange={this.onChange}
             type="email"
             name="email"
             className="form-control"
@@ -132,7 +132,7 @@ class HeaderTitle extends Component {
   }
 }
 
-let EmailInput2 = connect(mapStateToProps, matchDispatchToProps)(EmailInput);
+
 
 class LoginForm extends Component {
   render(){
@@ -140,7 +140,7 @@ class LoginForm extends Component {
       <div>
         <form className="form-signin">
           <EmailInput2 label="Correo electrónico" />
-          <PassInput label="Contraseña" />
+          <PassInput2 label="Contraseña" />
           <Button label="Iniciar sesión" />
         </form>
       </div>
@@ -160,48 +160,59 @@ class LoginPage extends Component {
   }
 }
 
-function userReducer() {
-  return {
-    email:'jose',
-    password:''
-  };
-};
+const userReducer = (state={}, action) => {
+  switch (action.type) {
+    case 'SET_USER_EMAIL':
+      state = {...state, email: action.payload}
+      break;
 
-let allReducers = combineReducers({
-  user:userReducer,
-  changedUser:changeUserReducer
+      case 'SET_USER_PASS':
+        state = {...state, pass: action.payload}
+        break;
+
+        default:
+        state = {...state}
+  }
+  return state;
+}
+
+const reducers = combineReducers({
+  user: userReducer
 });
-let store = createStore(allReducers);
+
+const store = createStore(reducers);
+
+const setUserEmail = (email) => {
+  return {
+    type: 'SET_USER_EMAIL',
+    payload: email
+  }
+}
+
+const setUserPass = (pass) => {
+  return {
+    type: 'SET_USER_PASS',
+    payload: pass
+  }
+}
+
+const mapStateToProps = (store) => {
+  return {
+    user:store.user
+  };
+}
+
+const matchDispatchToProps = (dispatch) => {
+  return   {
+    setUserEmail: (email) => dispatch(setUserEmail(email)),
+    setUserPass: (pass) => dispatch(setUserPass(pass))
+  };
+}
+
+let EmailInput2 = connect(mapStateToProps, matchDispatchToProps)(EmailInput);
+let PassInput2 = connect(mapStateToProps, matchDispatchToProps)(PassInput);
 
 const app = document.getElementById('root');
-
-function mapStateToProps(state){
-  return {
-    user:state.changedUser
-  };
-}
-
-function actionChangeUser(user){
-  console.log("email-log: ", user.email);
-  return{
-    type: 'USER_CHANGED',
-    payload: user
-  }
-}
-
-function matchDispatchToProps(dispatch){
-  return bindActionCreators({actionChangeUser:actionChangeUser},dispatch);
-}
-
-function changeUserReducer(state={},action){
-  switch (action.type) {
-    case 'USER_CHANGED':
-      return action.payload;
-      break;
-    default:
-      return state;
-  }
-}
 
 ReactDOM.render(
   <Provider store={store}>
