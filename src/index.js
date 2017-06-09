@@ -102,7 +102,7 @@ class EmailInput extends Component {
       return(
         <div>
           <input
-            onChange={()=>this.props.changeUser(this.props.user)}
+            onChange={()=>this.props.actionChangeUser(this.props.user)}
             type="email"
             name="email"
             className="form-control"
@@ -167,18 +167,21 @@ function userReducer() {
   };
 };
 
-let allReducers = combineReducers({user:userReducer});
+let allReducers = combineReducers({
+  user:userReducer,
+  changedUser:changeUserReducer
+});
 let store = createStore(allReducers);
 
 const app = document.getElementById('root');
 
 function mapStateToProps(state){
   return {
-    user:state.user
+    user:state.changedUser
   };
 }
 
-function changeUser(user){
+function actionChangeUser(user){
   console.log("email-log: ", user.email);
   return{
     type: 'USER_CHANGED',
@@ -187,10 +190,18 @@ function changeUser(user){
 }
 
 function matchDispatchToProps(dispatch){
-  return bindActionCreators({changeUser:changeUser},dispatch);
+  return bindActionCreators({actionChangeUser:actionChangeUser},dispatch);
 }
 
-
+function changeUserReducer(state={},action){
+  switch (action.type) {
+    case 'USER_CHANGED':
+      return action.payload;
+      break;
+    default:
+      return state;
+  }
+}
 
 ReactDOM.render(
   <Provider store={store}>
