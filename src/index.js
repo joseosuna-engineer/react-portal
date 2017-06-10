@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, combineReducers } from 'redux';
 import { Provider, connect } from 'react-redux';
 global.jQuery = require('jquery');
 global.Tether = require('tether');
@@ -8,6 +7,7 @@ global.Bootstrap = require('bootstrap');
 require('bootstrap/dist/css/bootstrap.min.css');
 require('./style/signin.css');
 import { hashHistory, Route, HashRouter } from 'react-router-dom';
+import store from './reducer';
 
 class Logo extends Component {
   render(){
@@ -181,28 +181,6 @@ class LoginPage extends Component {
     );
   }
 }
-
-const userReducer = (state={}, action) => {
-  switch (action.type) {
-    case 'SET_USER_EMAIL':
-      state = {...state, email: action.payload}
-      break;
-
-      case 'SET_USER_PASS':
-        state = {...state, pass: action.payload}
-        break;
-
-        default:
-        state = {...state}
-  }
-  return state;
-}
-
-const reducers = combineReducers({
-  user: userReducer
-});
-
-const store = createStore(reducers);
 
 const setUserEmail = (email) => {
   return {
