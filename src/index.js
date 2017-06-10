@@ -2,6 +2,11 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, combineReducers } from 'redux';
 import { Provider, connect } from 'react-redux';
+global.jQuery = require('jquery');
+global.Tether = require('tether');
+global.Bootstrap = require('bootstrap');
+require('bootstrap/dist/css/bootstrap.min.css');
+require('./style/signin.css');
 
 class Logo extends Component {
   render(){
