@@ -151,9 +151,7 @@ class LoginForm extends Component {
     e.preventDefault();
     if(this.props.user.email==='user@email.net' &&
       this.props.user.pass==='123'){
-        console.log("accept");
-        console.log(this.props.history);
-
+        this.props.history.push('/home');
     }else{
       console.log("reject");
     }
@@ -178,7 +176,7 @@ class LoginPage extends Component {
       <div className="container">
         <Logo />
         <HeaderTitle label="Inicia sesión en Prottonne"/>
-        <LoginForm2 />
+        <LoginForm2 history={this.props.history} />
       </div>
     );
   }
