@@ -7,6 +7,7 @@ global.Tether = require('tether');
 global.Bootstrap = require('bootstrap');
 require('bootstrap/dist/css/bootstrap.min.css');
 require('./style/signin.css');
+import { hashHistory, Route, HashRouter } from 'react-router-dom';
 
 class Logo extends Component {
   render(){
@@ -140,10 +141,28 @@ class HeaderTitle extends Component {
 
 
 class LoginForm extends Component {
+  constructor(props){
+    super(props);
+
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onSubmit(e){
+    e.preventDefault();
+    if(this.props.user.email==='user@email.net' &&
+      this.props.user.pass==='123'){
+        console.log("accept");
+        console.log(this.props.history);
+
+    }else{
+      console.log("reject");
+    }
+  }
+
   render(){
     return(
       <div>
-        <form className="form-signin">
+        <form className="form-signin" onSubmit={this.onSubmit}>
           <EmailInput2 label="Correo electrónico" />
           <PassInput2 label="Contraseña" />
           <Button label="Iniciar sesión" />
@@ -159,7 +178,7 @@ class LoginPage extends Component {
       <div className="container">
         <Logo />
         <HeaderTitle label="Inicia sesión en Prottonne"/>
-        <LoginForm />
+        <LoginForm2 />
       </div>
     );
   }
@@ -214,14 +233,33 @@ const matchDispatchToProps = (dispatch) => {
   };
 }
 
+class HomePage extends Component {
+  render(){
+    return(
+      <div><h1>Welcome {this.props.user.email}!</h1></div>
+    );
+  }
+}
+
 let EmailInput2 = connect(mapStateToProps, matchDispatchToProps)(EmailInput);
 let PassInput2 = connect(mapStateToProps, matchDispatchToProps)(PassInput);
+let LoginForm2 = connect(mapStateToProps, matchDispatchToProps)(LoginForm);
+let HomePage2 = connect(mapStateToProps, matchDispatchToProps)(HomePage);
+
+
+
 
 const app = document.getElementById('root');
 
+
 ReactDOM.render(
   <Provider store={store}>
-    <LoginPage />
+    <HashRouter history={hashHistory}>
+      <div>
+        <Route exact={true} path='/' component={LoginPage}/>
+        <Route exact={true} path='/home' component={HomePage2}/>
+      </div>
+    </HashRouter>
   </Provider>
   ,
   app
