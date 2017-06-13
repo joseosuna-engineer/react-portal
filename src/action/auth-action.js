@@ -5,8 +5,6 @@
 
 import axios from 'axios';
 
-const HOST = 'https://reqres.in';
-
 const setAuthToken = (token) => {
   if(token){
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
@@ -17,7 +15,7 @@ const setAuthToken = (token) => {
 
  export const login = (user) => {
    return dispatch => {
-     return axios.post(HOST+'/api/login', user)
+     return axios.post('/login', user)
       .then(
         (res) => {
           const token = res.data.token;
