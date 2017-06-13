@@ -4,7 +4,7 @@
  */
 
 import { setUserEmail, setUserPassword } from '../action/user-action';
-import { login } from '../action/login-action';
+import { login } from '../action/auth-action';
 
  export const mapStateToProps = (store) => {
    return {
