@@ -4,22 +4,25 @@
  */
 
 import axios from 'axios';
+import {
+  AUTH_HEADER, LOGIN_PATH, AUTH_TOKEN_LOCAL_NAME
+} from '../action/action-const';
 
-const setAuthToken = (token) => {
+export const setAuthToken = (token) => {
   if(token){
-    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    axios.defaults.headers.common[AUTH_HEADER] = `Bearer ${token}`;
   }else {
-    delete axios.defaults.headers.common['Authorization'];
+    delete axios.defaults.headers.common[AUTH_HEADER];
   }
 }
 
  export const login = (user) => {
    return dispatch => {
-     return axios.post('/login', user)
+     return axios.post(LOGIN_PATH, user)
       .then(
         (res) => {
           const token = res.data.token;
-          localStorage.setItem('jwtToken', token);
+          localStorage.setItem(AUTH_TOKEN_LOCAL_NAME, token);
           setAuthToken(token);
         }
       );
