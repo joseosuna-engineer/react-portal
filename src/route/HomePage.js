@@ -5,7 +5,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { mapStateToProps } from '../container/user-container';
+import { mapStateToProps } from '../container/home-page-container';
 import { Link } from 'react-router-dom';
 
 class HomePage extends Component {
