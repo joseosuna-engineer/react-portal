@@ -8,8 +8,7 @@ import EmailInput from './EmailInput';
 import PasswordInput from './PasswordInput';
 import Button from './Button';
 import { connect } from 'react-redux';
-import { mapStateToProps } from '../container/user-container';
-import axios from 'axios';
+import { mapStateToProps, matchDispatchToProps } from '../container/user-container';
 
 class LoginForm extends Component {
   constructor(props){
@@ -20,7 +19,7 @@ class LoginForm extends Component {
 
   onSubmit(e){
     e.preventDefault();
-    axios.post('https://reqres.in/api/login', this.props.user).then(
+    this.props.login(this.props.user).then(
       (res) => this.props.history.push('/home'),
       (err) => console.log(err)
     );
@@ -39,4 +38,4 @@ class LoginForm extends Component {
   }
 }
 
-export default connect(mapStateToProps)(LoginForm);
+export default connect(mapStateToProps, matchDispatchToProps )(LoginForm);

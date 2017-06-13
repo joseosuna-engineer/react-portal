@@ -4,6 +4,7 @@
  */
 
 import { setUserEmail, setUserPassword } from '../action/user-action';
+import { login } from '../action/login-action';
 
  export const mapStateToProps = (store) => {
    return {
@@ -14,6 +15,7 @@ import { setUserEmail, setUserPassword } from '../action/user-action';
  export const matchDispatchToProps = (dispatch) => {
    return   {
      setUserEmail: (email) => dispatch(setUserEmail(email)),
-     setUserPassword: (password) => dispatch(setUserPassword(password))
+     setUserPassword: (password) => dispatch(setUserPassword(password)),
+     login: (user) => dispatch(login(user))
    };
  }
