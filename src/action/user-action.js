@@ -10,9 +10,9 @@
    }
  }
 
- export const setUserPass = (pass) => {
+ export const setUserPassword = (password) => {
    return {
-     type: 'SET_USER_PASS',
-     payload: pass
+     type: 'SET_USER_PASSWORD',
+     payload: password
    }
  }

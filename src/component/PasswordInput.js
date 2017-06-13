@@ -20,7 +20,7 @@ class PasswordInput extends Component {
   }
 
   onChange(e){
-    this.props.setUserPass(e.target.value);
+    this.props.setUserPassword(e.target.value);
   }
 
     render(){

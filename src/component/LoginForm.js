@@ -9,6 +9,7 @@ import PasswordInput from './PasswordInput';
 import Button from './Button';
 import { connect } from 'react-redux';
 import { mapStateToProps } from '../container/user-container';
+import axios from 'axios';
 
 class LoginForm extends Component {
   constructor(props){
@@ -19,12 +20,10 @@ class LoginForm extends Component {
 
   onSubmit(e){
     e.preventDefault();
-    if(this.props.user.email==='user@email.net' &&
-      this.props.user.pass==='123'){
-        this.props.history.push('/home');
-    }else{
-      console.log("reject");
-    }
+    axios.post('https://reqres.in/api/login', this.props.user).then(
+      (res) => this.props.history.push('/home'),
+      (err) => console.log(err)
+    );
   }
 
   render(){
