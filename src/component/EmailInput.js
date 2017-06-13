@@ -5,7 +5,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { mapStateToProps, matchDispatchToProps } from '../container/user-container';
+import { mapStateToProps, matchDispatchToProps } from '../container/email-input-container';
 
  class EmailInput extends Component {
    constructor(props){

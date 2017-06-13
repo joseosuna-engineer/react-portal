@@ -8,7 +8,7 @@ import EmailInput from './EmailInput';
 import PasswordInput from './PasswordInput';
 import Button from './Button';
 import { connect } from 'react-redux';
-import { mapStateToProps, matchDispatchToProps } from '../container/user-container';
+import { mapStateToProps, matchDispatchToProps } from '../container/login-form-container';
 
 class LoginForm extends Component {
   constructor(props){

@@ -5,7 +5,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { mapStateToProps, matchDispatchToProps } from '../container/user-container';
+import { mapStateToProps, matchDispatchToProps } from '../container/password-input-container';
 
 class PasswordInput extends Component {
   constructor(props){
