@@ -9,8 +9,8 @@ export default function userReducer(state={}, action) {
       state = {...state, email: action.payload}
       break;
 
-      case 'SET_USER_PASS':
-        state = {...state, pass: action.payload}
+      case 'SET_USER_PASSWORD':
+        state = {...state, password: action.payload}
         break;
 
         default:

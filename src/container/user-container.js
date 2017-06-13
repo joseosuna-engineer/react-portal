@@ -3,7 +3,7 @@
  * Copyright 2017 Prottonne
  */
 
-import { setUserEmail, setUserPass } from '../action/user-action';
+import { setUserEmail, setUserPassword } from '../action/user-action';
 
  export const mapStateToProps = (store) => {
    return {
@@ -14,6 +14,6 @@ import { setUserEmail, setUserPass } from '../action/user-action';
  export const matchDispatchToProps = (dispatch) => {
    return   {
      setUserEmail: (email) => dispatch(setUserEmail(email)),
-     setUserPass: (pass) => dispatch(setUserPass(pass))
+     setUserPassword: (password) => dispatch(setUserPassword(password))
    };
  }
