@@ -5,7 +5,6 @@
 
  export const mapStateToProps = (store) => {
    return {
-     user:store.user,
-     auth:store.auth
+     user:store.user
    };
  }

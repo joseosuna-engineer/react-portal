@@ -5,8 +5,9 @@
 
 import axios from 'axios';
 import {
-  AUTH_HEADER, LOGIN_PATH, AUTH_TOKEN_LOCAL_NAME, SET_AUTH_USER
+  AUTH_HEADER, LOGIN_PATH, AUTH_TOKEN_LOCAL_NAME
 } from '../action/action-const';
+import { setUserAuth } from './user-action';
 
 export const setAuthToken = (token) => {
   if(token){
@@ -14,13 +15,6 @@ export const setAuthToken = (token) => {
   }else {
     delete axios.defaults.headers.common[AUTH_HEADER];
   }
-}
-
-export const setAuthUser = (user) => {
-  return {
-    type: SET_AUTH_USER,
-    payload: user
-  };
 }
 
  export const login = (user) => {
@@ -31,7 +25,7 @@ export const setAuthUser = (user) => {
           const token = res.data.token;
           localStorage.setItem(AUTH_TOKEN_LOCAL_NAME, token);
           setAuthToken(token);
-          dispatch(setAuthUser(token));
+          dispatch(setUserAuth(token));
         }
       );
    }
