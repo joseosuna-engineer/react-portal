@@ -4,10 +4,8 @@
  */
 
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { mapStateToProps, matchDispatchToProps } from '../container/email-input-container';
 
- class EmailInput extends Component {
+export default class EmailInput extends Component {
    constructor(props){
      super(props);
      this.state={
@@ -35,5 +33,3 @@ import { mapStateToProps, matchDispatchToProps } from '../container/email-input-
        );
      }
  }
-
-export default connect(mapStateToProps, matchDispatchToProps)(EmailInput);

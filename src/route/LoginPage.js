@@ -6,7 +6,7 @@
 import React, { Component } from 'react';
 import  Logo  from '../component/Logo';
 import  HeaderTitle  from '../component/HeaderTitle';
-import  LoginForm  from '../component/LoginForm';
+import  LoginForm  from '../container/login-form-container';
 
 class LoginPage extends Component {
   render(){

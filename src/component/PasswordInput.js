@@ -4,10 +4,8 @@
  */
 
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { mapStateToProps, matchDispatchToProps } from '../container/password-input-container';
 
-class PasswordInput extends Component {
+export default class PasswordInput extends Component {
   constructor(props){
     super(props);
     this.state={
@@ -38,5 +36,3 @@ class PasswordInput extends Component {
       );
     }
 }
-
-export default connect(mapStateToProps, matchDispatchToProps)(PasswordInput);
