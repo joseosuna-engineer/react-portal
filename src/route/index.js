@@ -13,9 +13,9 @@ require('../style/signin.css');
 import { hashHistory, Route, HashRouter } from 'react-router-dom';
 import store from '../reducer';
 import  LoginPage  from '../route/LoginPage';
-import  HomePage  from '../route/HomePage';
+import  HomePage  from '../container/home-page-container';
 
-class IndexPage extends Component {
+export default class IndexPage extends Component {
   render(){
     return(
       <Provider store={store}>
@@ -29,5 +29,3 @@ class IndexPage extends Component {
     );
   }
 }
-
-export default IndexPage;

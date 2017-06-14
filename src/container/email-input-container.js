@@ -4,15 +4,19 @@
  */
 
 import { setUserEmail } from '../action/user-action';
+import EmailInput from '../component/EmailInput';
+import { connect } from 'react-redux';
 
- export const mapStateToProps = (store) => {
+ const mapStateToProps = (store) => {
    return {
      user:store.user
    };
  }
 
- export const matchDispatchToProps = (dispatch) => {
+ const matchDispatchToProps = (dispatch) => {
    return   {
      setUserEmail: (email) => dispatch(setUserEmail(email))
    };
  }
+
+export default connect(mapStateToProps, matchDispatchToProps)(EmailInput);

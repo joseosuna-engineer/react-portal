@@ -4,13 +4,11 @@
  */
 
 import React, { Component } from 'react';
-import EmailInput from './EmailInput';
-import PasswordInput from './PasswordInput';
+import EmailInput from '../container/email-input-container';
+import PasswordInput from '../container/password-input-container';
 import Button from './Button';
-import { connect } from 'react-redux';
-import { mapStateToProps, matchDispatchToProps } from '../container/login-form-container';
 
-class LoginForm extends Component {
+export default class LoginForm extends Component {
   constructor(props){
     super(props);
 
@@ -37,5 +35,3 @@ class LoginForm extends Component {
     );
   }
 }
-
-export default connect(mapStateToProps, matchDispatchToProps )(LoginForm);
