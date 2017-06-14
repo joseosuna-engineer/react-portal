@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 class HomePage extends Component {
   render(){
 
-    if(this.props.auth.isAuth){
+    if(this.props.user.isAuth){
       return(
         <div>
           <h1>Welcome {this.props.user.email}!</h1>

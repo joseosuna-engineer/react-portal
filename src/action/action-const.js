@@ -8,4 +8,4 @@ export const AUTH_HEADER = 'Authorization';
 export const LOGIN_PATH = '/login';
 export const SET_USER_EMAIL = 'SET_USER_EMAIL';
 export const SET_USER_PASSWORD = 'SET_USER_PASSWORD';
-export const SET_AUTH_USER = 'SET_AUTH_USER';
+export const SET_USER_AUTH = 'SET_USER_AUTH';
