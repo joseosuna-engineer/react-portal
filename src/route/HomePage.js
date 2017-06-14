@@ -10,12 +10,24 @@ import { Link } from 'react-router-dom';
 
 class HomePage extends Component {
   render(){
-    return(
-      <div>
-        <h1>Welcome {this.props.user.email}!</h1>
-        <Link to="/">Logout</Link>
-      </div>
-    );
+
+    if(this.props.auth.isAuth){
+      return(
+        <div>
+          <h1>Welcome {this.props.user.email}!</h1>
+          <h4>You are authenticated: yes!</h4>
+          <Link to="/">Logout</Link>
+        </div>
+      );
+    }else{
+      return(
+        <div>
+          <h1>Welcome {this.props.user.email}!</h1>
+          <h4>You are authenticated: no!</h4>
+          <Link to="/">Logout</Link>
+        </div>
+      );
+    }
   }
 }
 
