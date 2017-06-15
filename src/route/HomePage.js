@@ -22,7 +22,7 @@ export default class HomePage extends Component {
         <div>
           <h1>Welcome {this.props.user.email}!</h1>
           <h4>You are authenticated: no!</h4>
-          <Link to="/">Logout</Link>
+          <Link to="/login">Logout</Link>
         </div>
       );
     }
