@@ -18,9 +18,9 @@ export default class LoginForm extends Component {
   onSubmit(e){
     e.preventDefault();
     this.props.login(this.props.user).then(
-      (res) => {
+      () => {
         if(this.props.user.isAuth){
-          this.props.history.push('/home');
+          this.props.history.push('/');
         }
       }
     );

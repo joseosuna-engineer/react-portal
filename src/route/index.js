@@ -21,8 +21,8 @@ export default class IndexPage extends Component {
       <Provider store={store}>
         <HashRouter history={hashHistory}>
           <div>
-            <Route exact={true} path='/' component={LoginPage} />
-            <Route exact={true} path='/home' component={HomePage} />
+            <Route exact={true} path='/' component={HomePage} />
+            <Route exact={true} path='/login' component={LoginPage} />
           </div>
         </HashRouter>
       </Provider>
