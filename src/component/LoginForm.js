@@ -18,8 +18,11 @@ export default class LoginForm extends Component {
   onSubmit(e){
     e.preventDefault();
     this.props.login(this.props.user).then(
-      (res) => this.props.history.push('/home'),
-      (err) => console.log(err)
+      (res) => {
+        if(this.props.user.isAuth){
+          this.props.history.push('/home');
+        }
+      }
     );
   }
 
