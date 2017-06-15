@@ -47,6 +47,11 @@
            localStorage.setItem(AUTH_TOKEN_LOCAL_NAME, token);
            setAuthToken(token);
            dispatch(setUserAuth(token));
+         },
+         (err) => {
+           localStorage.removeItem(AUTH_TOKEN_LOCAL_NAME);
+           setAuthToken();
+           dispatch(setUserAuth());
          }
        );
     }
