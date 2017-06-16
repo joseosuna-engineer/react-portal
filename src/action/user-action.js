@@ -38,6 +38,16 @@
    }
  }
 
+ export const logout = () => {
+   return dispatch => {
+     localStorage.removeItem(AUTH_TOKEN_LOCAL_NAME);
+     setAuthToken(false);
+     dispatch(setUserAuth());
+     dispatch(setUserEmail());
+     dispatch(setUserPassword());
+   }
+ }
+
  export const login = (user) => {
     return dispatch => {
       return axios.post(LOGIN_PATH, user)
@@ -49,9 +59,7 @@
            dispatch(setUserAuth(token));
          },
          (err) => {
-           localStorage.removeItem(AUTH_TOKEN_LOCAL_NAME);
-           setAuthToken();
-           dispatch(setUserAuth());
+           logout();
          }
        );
     }
@@ -62,5 +70,5 @@
       if(!state.user.isAuth){
         state.history.push('/login');
       }
-    }    
+    }
   }

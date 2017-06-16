@@ -5,7 +5,7 @@
 
  import HomePage from '../route/HomePage';
  import { connect } from 'react-redux';
- import { requiredAuth } from '../action/user-action';
+ import { requiredAuth, logout } from '../action/user-action';
 
  export const mapStateToProps = (store) => {
    return {
@@ -15,7 +15,8 @@
 
  const matchDispatchToProps = (dispatch) => {
    return   {
-     requiredAuth: (state) => dispatch(requiredAuth(state))
+     requiredAuth: (state) => dispatch(requiredAuth(state)),
+     logout: () => dispatch(logout()),
    };
  }
 
