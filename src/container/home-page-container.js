@@ -5,6 +5,7 @@
 
  import HomePage from '../route/HomePage';
  import { connect } from 'react-redux';
+ import { requiredAuth } from '../action/user-action';
 
  export const mapStateToProps = (store) => {
    return {
@@ -12,4 +13,10 @@
    };
  }
 
- export default connect(mapStateToProps)(HomePage);
+ const matchDispatchToProps = (dispatch) => {
+   return   {
+     requiredAuth: (state) => dispatch(requiredAuth(state))
+   };
+ }
+
+ export default connect(mapStateToProps, matchDispatchToProps)(HomePage);

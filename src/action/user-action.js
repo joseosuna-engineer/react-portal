@@ -56,3 +56,11 @@
        );
     }
   }
+
+  export const requiredAuth = (state) => {
+    return dispatch => {
+      if(!state.user.isAuth){
+        state.history.push('/login');
+      }
+    }    
+  }
