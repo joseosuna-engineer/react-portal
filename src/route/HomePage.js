@@ -5,11 +5,18 @@
 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+ import axios from 'axios';
 
 export default class HomePage extends Component {
   constructor(props){
     super(props);
     this.logout = this.logout.bind(this);
+    axios.post('/lab/profile')
+     .then(
+       (res) => {
+         console.log(res);
+       }
+     );
   }
   componentWillMount() {
    this.props.requiredAuth(this.props);
