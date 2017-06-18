@@ -12,7 +12,9 @@ class LoginPage extends Component {
   render(){
     return(
       <div className="container">
-        <Logo />
+        <div className="login-logo-svg" >
+          <Logo />
+        </div>
         <HeaderTitle label="Inicia sesión en Prottonne"/>
         <LoginForm history={this.props.history} />
       </div>

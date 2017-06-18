@@ -14,6 +14,7 @@ import { hashHistory, Route, HashRouter } from 'react-router-dom';
 import store from '../reducer';
 import  LoginPage  from '../route/LoginPage';
 import  HomePage  from '../container/home-page-container';
+require('../style/navbar.css');
 
 export default class IndexPage extends Component {
   render(){
