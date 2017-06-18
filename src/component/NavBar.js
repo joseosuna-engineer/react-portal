@@ -13,7 +13,7 @@ export default class NavBar extends Component {
       <div>
       <nav className="navbar fixed-bottom navbar-light bg-faded">
         <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon-local"></span>
         </button>
         <a className="navbar-brand" href="#">
           <div className="d-inline-block align-top logo-nav">
