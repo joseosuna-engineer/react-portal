@@ -11,7 +11,9 @@ import Button from './Button';
 export default class LoginForm extends Component {
   constructor(props){
     super(props);
-
+    this.state={
+      styleName:props.styleName
+    };
     this.onSubmit = this.onSubmit.bind(this);
   }
 
@@ -29,10 +31,24 @@ export default class LoginForm extends Component {
   render(){
     return(
       <div>
-        <form className="form-signin" onSubmit={this.onSubmit}>
-          <EmailInput label="Correo electrónico" />
-          <PasswordInput label="Contraseña" />
-          <Button label="Iniciar sesión" />
+        <form
+          className={this.state.styleName}
+          onSubmit={this.onSubmit}
+        >
+          <EmailInput
+            label="Correo electrónico"
+            styleName="form-control"
+            type="email"
+          />
+          <PasswordInput
+            label="Contraseña"
+            styleName="form-control"
+            type="password"
+          />
+          <Button
+            label="Iniciar sesión"
+            styleName="btn btn-lg btn-primary btn-block"
+            type="submit" />
         </form>
       </div>
     );

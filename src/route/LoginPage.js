@@ -15,8 +15,14 @@ class LoginPage extends Component {
         <div className="login-logo-svg" >
           <Logo />
         </div>
-        <HeaderTitle label="Inicia sesión en Prottonne"/>
-        <LoginForm history={this.props.history} />
+        <HeaderTitle
+          label="Inicia sesión en Prottonne"
+          styleName="login-header"
+        />
+        <LoginForm
+          history={this.props.history}
+          styleName="form-signin"
+        />
       </div>
     );
   }

@@ -4,7 +4,7 @@
  */
 
  import { setUserPassword } from '../action/user-action';
- import PasswordInput from '../component/PasswordInput';
+ import Input from '../component/Input';
  import { connect } from 'react-redux';
 
   const mapStateToProps = (store) => {
@@ -19,4 +19,4 @@
     };
   }
 
-export default connect(mapStateToProps, matchDispatchToProps)(PasswordInput);
+export default connect(mapStateToProps, matchDispatchToProps)(Input);

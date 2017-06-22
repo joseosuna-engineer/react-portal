@@ -4,7 +4,7 @@
  */
 
 import { setUserEmail } from '../action/user-action';
-import EmailInput from '../component/EmailInput';
+import Input from '../component/Input';
 import { connect } from 'react-redux';
 
  const mapStateToProps = (store) => {
@@ -19,4 +19,4 @@ import { connect } from 'react-redux';
    };
  }
 
-export default connect(mapStateToProps, matchDispatchToProps)(EmailInput);
+export default connect(mapStateToProps, matchDispatchToProps)(Input);
