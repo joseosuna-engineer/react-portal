@@ -27,7 +27,7 @@ export default class NavBar extends Component {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <a className="nav-link" href="#">Home</a>
+              <a className="nav-link" href="#/">Home</a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">Activity</a>
@@ -36,7 +36,10 @@ export default class NavBar extends Component {
               <a className="nav-link" href="#">Settings</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Profile</a>
+              <a className="nav-link" href="#/profile">Profile</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Logout</a>
             </li>
           </ul>
         </div>
