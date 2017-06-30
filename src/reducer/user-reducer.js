@@ -4,7 +4,8 @@
  */
 
  import {
-   SET_USER_EMAIL, SET_USER_PASSWORD, SET_USER_AUTH
+   SET_USER_EMAIL, SET_USER_PASSWORD, SET_USER_AUTH,
+   SET_USER_FIRST_NAME, SET_USER_LAST_NAME
  } from '../action/action-const';
  import isEmpty from 'lodash/isEmpty';
 
@@ -25,6 +26,14 @@ export default function userReducer(state=initialState, action) {
     case SET_USER_AUTH:
       state = {...state, isAuth: !isEmpty(action.payload)}
       break;
+
+    case SET_USER_FIRST_NAME:
+      state = {...state, firstName: action.payload}
+      break;
+
+    case SET_USER_LAST_NAME:
+      state = {...state, lastName: action.payload}
+        break;
 
     default:
       state = {...state}

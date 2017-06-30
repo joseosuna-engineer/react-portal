@@ -5,7 +5,8 @@
 
  import {
    SET_USER_EMAIL, SET_USER_PASSWORD, SET_USER_AUTH,
-   AUTH_HEADER, LOGIN_PATH, AUTH_TOKEN_LOCAL_NAME
+   AUTH_HEADER, LOGIN_PATH, AUTH_TOKEN_LOCAL_NAME,
+   PROFILE_PATH, SET_USER_FIRST_NAME, SET_USER_LAST_NAME
  } from '../action/action-const';
  import axios from 'axios';
 
@@ -27,6 +28,20 @@
    return {
      type: SET_USER_AUTH,
      payload: token
+   };
+ }
+
+ export const setUserFirstName = (firstName) => {
+   return {
+     type: SET_USER_FIRST_NAME,
+     payload: firstName
+   };
+ }
+
+ export const setUserLastName = (lastName) => {
+   return {
+     type: SET_USER_LAST_NAME,
+     payload: lastName
    };
  }
 
@@ -57,6 +72,7 @@
            localStorage.setItem(AUTH_TOKEN_LOCAL_NAME, token);
            setAuthToken(token);
            dispatch(setUserAuth(token));
+           dispatch(setUserPassword());
          },
          (err) => {
            logout();
@@ -72,3 +88,18 @@
       }
     }
   }
+
+  export const getProfile = (user) => {
+     return dispatch => {
+       return axios.post(PROFILE_PATH, user)
+        .then(
+          (res) => {
+            dispatch(setUserFirstName(res.data.user.firstName));
+            dispatch(setUserLastName(res.data.user.lastName));
+          },
+          (err) => {
+            console.log(err);
+          }
+        );
+     }
+   }

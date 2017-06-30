@@ -14,7 +14,12 @@ export default class HomePage extends Component {
   render(){
       return(
         <div className="container">
-          <NavBar />
+          <div className="row">
+            -- home --
+          </div>
+          <div className="row">
+            <NavBar />
+          </div>
         </div>
       );
   }
