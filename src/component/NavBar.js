@@ -9,7 +9,15 @@ import HamburgerIcon from '../component/HamburgerIcon';
 import { Link } from 'react-router-dom';
 
 export default class NavBar extends Component {
+  constructor(props){
+    super(props);
+    this.onClick = this.onClick.bind(this);
+  }
 
+  onClick(e){
+    e.preventDefault();
+    this.props.logout(this.props.history);
+  }
   render(){
     return(
       <div>
@@ -28,10 +36,13 @@ export default class NavBar extends Component {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link className="nav-link" to="/">Mis Seguros</Link>
+              <Link className="nav-link" to="/">Mis seguros</Link>
             </li>
             <li className="nav-item">
-            <Link className="nav-link" to="/settings">Configuración</Link>
+              <Link className="nav-link" to="/settings">Configuración</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" onClick={this.onClick} to="/logout">Cerrar sesión</Link>
             </li>
           </ul>
         </div>

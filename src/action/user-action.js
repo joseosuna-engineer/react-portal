@@ -53,17 +53,18 @@
    }
  }
 
- export const logout = () => {
+ export const logout = (history) => {
    return dispatch => {
      localStorage.removeItem(AUTH_TOKEN_LOCAL_NAME);
      setAuthToken(false);
      dispatch(setUserAuth());
      dispatch(setUserEmail());
      dispatch(setUserPassword());
+     history.push('/login');
    }
  }
 
- export const login = (user) => {
+ export const login = (user,history) => {
     return dispatch => {
       return axios.post(LOGIN_PATH, user)
        .then(
@@ -75,7 +76,7 @@
            dispatch(setUserPassword());
          },
          (err) => {
-           logout();
+           logout(history);
          }
        );
     }
