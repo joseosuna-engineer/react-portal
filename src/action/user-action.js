@@ -76,7 +76,7 @@
            dispatch(setUserPassword());
          },
          (err) => {
-           logout(state.history);
+           dispatch(logout(state.history));
          }
        );
     }
@@ -98,16 +98,18 @@
     }
   }
 
-  export const getProfile = (user) => {
+  export const getProfile = (state) => {
      return dispatch => {
-       return axios.post(PROFILE_PATH, user)
+       return axios.post(PROFILE_PATH, state.user)
         .then(
           (res) => {
             dispatch(setUserFirstName(res.data.user.firstName));
             dispatch(setUserLastName(res.data.user.lastName));
           },
           (err) => {
-            console.log(err);
+            if(err.response.data.message==='101'){
+              dispatch(logout(state.history));
+            }
           }
         );
      }
