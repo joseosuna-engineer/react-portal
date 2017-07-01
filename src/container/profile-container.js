@@ -15,7 +15,7 @@ import { connect } from 'react-redux';
 
  const matchDispatchToProps = (dispatch) => {
    return   {
-     getProfile: (user) => dispatch(getProfile(user))
+     getProfile: (state) => dispatch(getProfile(state))
    };
  }
 

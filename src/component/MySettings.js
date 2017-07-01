@@ -8,7 +8,7 @@ import React, { Component } from 'react';
 export default class MySettings extends Component {
   componentDidMount(){
     if(this.props.user.isAuth){
-      this.props.getProfile(this.props.user);
+      this.props.getProfile(this.props);
     }
   }
   render(){
