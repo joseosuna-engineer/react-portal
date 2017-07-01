@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom';
 import MyInsurances from '../component/MyInsurances';
 import MySettings from '../component/MySettings';
-import NavBar from '../component/NavBar';
+import NavBar from '../container/nav-bar-container';
 
 export default class Routes extends Component {
   componentWillMount() {
@@ -18,7 +18,7 @@ export default class Routes extends Component {
   render(){
     return(
       <div>
-        <NavBar />
+        <NavBar history={this.props.history} />
         <Route exact path="/" component={MyInsurances}/>
         <Route exact path="/settings" component={MySettings}/>
       </div>

@@ -15,7 +15,7 @@ import { connect } from 'react-redux';
 
  const matchDispatchToProps = (dispatch) => {
    return   {
-     login: (user) => dispatch(login(user))
+     login: (user,history) => dispatch(login(user,history))
    };
  }
 
