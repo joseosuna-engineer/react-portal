@@ -64,9 +64,9 @@
    }
  }
 
- export const login = (user,history) => {
+ export const login = (state) => {
     return dispatch => {
-      return axios.post(LOGIN_PATH, user)
+      return axios.post(LOGIN_PATH, state.user)
        .then(
          (res) => {
            const token = res.data.token;
@@ -76,10 +76,18 @@
            dispatch(setUserPassword());
          },
          (err) => {
-           logout(history);
+           logout(state.history);
          }
        );
     }
+  }
+
+  export const goHome = (state) => {
+    return dispatch => {
+        if(state.user.isAuth){
+          state.history.push('/');
+        }
+     }
   }
 
   export const requiredAuth = (state) => {
