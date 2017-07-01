@@ -7,13 +7,13 @@ import React, { Component } from 'react';
 import {
   Route
 } from 'react-router-dom';
-import MyInsurances from '../component/MyInsurances';
-import MySettings from '../component/MySettings';
+import MyInsurances from '../container/profile-container';
+import MySettings from '../container/profile-container-2';
 import NavBar from '../container/nav-bar-container';
 
 export default class Routes extends Component {
   componentWillMount() {
-   this.props.requiredAuth(this.props);
+    this.props.requiredAuth(this.props);
   }
   render(){
     return(

@@ -4,7 +4,7 @@
  */
 
 import { getProfile } from '../action/user-action';
-import Profile from '../component/MyInsurances';
+import Profile from '../component/MySettings';
 import { connect } from 'react-redux';
 
  const mapStateToProps = (store) => {
