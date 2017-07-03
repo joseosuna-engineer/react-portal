@@ -9,6 +9,7 @@
    PROFILE_PATH, SET_USER_FIRST_NAME, SET_USER_LAST_NAME
  } from '../action/action-const';
  import axios from 'axios';
+ import jwtDecode from 'jwt-decode';
 
  export const setUserEmail = (email) => {
    return {
@@ -72,7 +73,7 @@
            const token = res.data.token;
            localStorage.setItem(AUTH_TOKEN_LOCAL_NAME, token);
            setAuthToken(token);
-           dispatch(setUserAuth(token));
+           dispatch(setUserAuth(jwtDecode(token)));
            dispatch(setUserPassword());
          },
          (err) => {
