@@ -7,8 +7,8 @@ import React, { Component } from 'react';
 import {
   Route
 } from 'react-router-dom';
-import MyInsurances from '../container/profile-container';
-import MySettings from '../container/profile-container-2';
+import MyInsurances from '../container/my-insurances-container';
+import MySettings from '../container/my-settings-container';
 import NavBar from '../container/nav-bar-container';
 
 export default class Routes extends Component {
