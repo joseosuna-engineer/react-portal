@@ -13,7 +13,7 @@ require('../style/signin.css');
 import store from '../reducer';
 require('../style/navbar.css');
 import AppPage from './AppPage';
-import { setAuthToken, setUserAuth } from '../action/user-action';
+import { setAuthToken, setUser } from '../action/user-action';
 import { AUTH_TOKEN_LOCAL_NAME } from '../action/action-const';
 import jwtDecode from 'jwt-decode';
 
@@ -22,7 +22,7 @@ export default class IndexPage extends Component {
     let token = localStorage.getItem(AUTH_TOKEN_LOCAL_NAME);
     if(token){
       setAuthToken(token);
-      store.dispatch(setUserAuth(jwtDecode(token)));
+      store.dispatch(setUser(jwtDecode(token).user));
     }
   }
   render(){
