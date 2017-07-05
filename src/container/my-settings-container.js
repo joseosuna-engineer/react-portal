@@ -4,7 +4,7 @@
  */
 
 import { getProfile } from '../action/user-action';
-import Profile from '../component/MySettings';
+import MySettings from '../route/MySettings';
 import { connect } from 'react-redux';
 
  const mapStateToProps = (store) => {
@@ -19,4 +19,4 @@ import { connect } from 'react-redux';
    };
  }
 
- export default connect(mapStateToProps, matchDispatchToProps )(Profile);
+ export default connect(mapStateToProps, matchDispatchToProps )(MySettings);

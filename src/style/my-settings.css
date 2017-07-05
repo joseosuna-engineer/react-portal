@@ -1,0 +1,16 @@
+/**
+ *
+ * Copyright 2017 Prottonne
+ */
+
+.user-pic {
+  max-width: 150px;
+  max-height: 150px;
+  margin: auto;
+  margin-top: 20px;
+}
+.user-name {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
