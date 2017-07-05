@@ -4,9 +4,9 @@
  */
 
  import {
-   SET_USER_EMAIL, SET_USER_PASSWORD, SET_USER_AUTH,
+   SET_USER_EMAIL, SET_USER_PASSWORD, SET_USER,
    AUTH_HEADER, LOGIN_PATH, AUTH_TOKEN_LOCAL_NAME,
-   PROFILE_PATH, SET_USER_FIRST_NAME, SET_USER_LAST_NAME
+   PROFILE_PATH
  } from '../action/action-const';
  import axios from 'axios';
  import jwtDecode from 'jwt-decode';
@@ -25,24 +25,10 @@
    }
  }
 
- export const setUserAuth = (token) => {
+ export const setUser = (user) => {
    return {
-     type: SET_USER_AUTH,
-     payload: token
-   };
- }
-
- export const setUserFirstName = (firstName) => {
-   return {
-     type: SET_USER_FIRST_NAME,
-     payload: firstName
-   };
- }
-
- export const setUserLastName = (lastName) => {
-   return {
-     type: SET_USER_LAST_NAME,
-     payload: lastName
+     type: SET_USER,
+     payload: user
    };
  }
 
@@ -58,9 +44,7 @@
    return dispatch => {
      localStorage.removeItem(AUTH_TOKEN_LOCAL_NAME);
      setAuthToken(false);
-     dispatch(setUserAuth());
-     dispatch(setUserEmail());
-     dispatch(setUserPassword());
+     dispatch(setUser({}));
      history.push('/login');
    }
  }
@@ -72,12 +56,11 @@
          (res) => {
            const token = res.data.token;
            localStorage.setItem(AUTH_TOKEN_LOCAL_NAME, token);
-           setAuthToken(token);
-           dispatch(setUserAuth(jwtDecode(token)));
-           dispatch(setUserPassword());
+           dispatch(setUser(jwtDecode(token).user));
          },
          (err) => {
-           dispatch(logout(state.history));
+           localStorage.removeItem(AUTH_TOKEN_LOCAL_NAME);
+           setAuthToken(false);
          }
        );
     }
@@ -85,7 +68,7 @@
 
   export const goHome = (state) => {
     return dispatch => {
-        if(state.user.isAuth){
+        if(state.user.auth){
           state.history.push('/');
         }
      }
@@ -93,7 +76,7 @@
 
   export const requiredAuth = (state) => {
     return dispatch => {
-      if(!state.user.isAuth){
+      if(!state.user.auth){
         state.history.push('/login');
       }
     }
@@ -104,8 +87,8 @@
        return axios.post(PROFILE_PATH, state.user)
         .then(
           (res) => {
-            dispatch(setUserFirstName(res.data.user.firstName));
-            dispatch(setUserLastName(res.data.user.lastName));
+          //  dispatch(setUserFirstName(res.data.user.firstName));
+        //    dispatch(setUserLastName(res.data.user.lastName));
           },
           (err) => {
             if(err.response.data.message==='101'){

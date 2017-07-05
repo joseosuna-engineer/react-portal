@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 
 export default class MyInsurances extends Component {
   componentDidMount(){
-    if(this.props.user.isAuth){
+    if(this.props.user.auth){
       this.props.getProfile(this.props);
     }
   }
