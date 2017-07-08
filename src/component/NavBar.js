@@ -9,36 +9,54 @@ import { Link } from 'react-router-dom';
 export default class NavBar extends Component {
   constructor(props){
     super(props);
+    this.state={
+      activeTabClassName:"insurance-icon"
+    }
+    this.logout = this.logout.bind(this);
     this.onClick = this.onClick.bind(this);
   }
 
-  onClick(e){
+  logout(e){
     e.preventDefault();
     this.props.logout(this.props.history);
   }
+
+  onClick(e){
+    this.setState({activeTabClassName:e.target.className});
+  }
+
   render(){
     return(
       <div className="fixed-bottom nav-bar-icon">
         <nav className="navbar navbar-light bg-faded">
           <div className="row">
             <div className="col">
-              <Link to="/">
-                <div className="small-icon insurance-icon"></div>
+              <Link onClick={this.onClick} to="/">
+                <div className={
+                  (this.state.activeTabClassName === 'insurance-icon')
+                    ? 'insurance-icon active':'insurance-icon'
+                  } ></div>
               </Link>
             </div>
             <div className="col">
-              <Link to="/claim">
-                <div className="small-icon claim-icon"></div>
+              <Link onClick={this.onClick} to="/claim">
+              <div className={
+                (this.state.activeTabClassName === 'claim-icon')
+                  ? 'claim-icon active':'claim-icon'
+                } ></div>
               </Link>
             </div>
             <div className="col">
-              <Link to="/settings">
-                <div className="small-icon settings-icon"></div>
+              <Link onClick={this.onClick} to="/settings">
+              <div className={
+                (this.state.activeTabClassName === 'settings-icon')
+                  ? 'settings-icon active':'settings-icon'
+                } ></div>
               </Link>
             </div>
             <div className="col">
-              <Link onClick={this.onClick} to="/logout">
-                <div className="small-icon exit-icon"></div>
+              <Link onClick={this.logout} to="/logout">
+                <div className="exit-icon"></div>
               </Link>
             </div>
           </div>
