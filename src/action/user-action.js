@@ -11,24 +11,6 @@
  import axios from 'axios';
  import jwtDecode from 'jwt-decode';
 
- /* MOCK AJAX CALL */
-import MockAdapter from 'axios-mock-adapter';
-
-let mock = new MockAdapter(axios);
-mock.onPost(LOGIN_PATH).reply(200, {
- token:
- 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI0NDY4ZjBjMC1jZTNiLTQ3MTgtOWNkOC0zYjYxYWQwZjRkMDkiLCJpYXQiOjE0OTkyOTQ0MTMsImV4cCI6MTQ5OTI5NDcxMywidXNlciI6eyJpZCI6MTAxMDAxLCJmaXJzdE5hbWUiOiJKb2huIiwibGFzdE5hbWUiOiJEb2UiLCJhdXRoIjp0cnVlfX0.6nPTkjHPGy62C33IzjDFTW5ilTVUDiMCdk6bOeTBpWx5yXPNNLo5VosGMUvfJgdCxwT1SVgAuBmHjPIhFxXt3Q'
-});
-mock.onPost(PROFILE_PATH).reply(200, {
- user: {
-        id: 'asd',
-        firstName: 'peter',
-        lastName: 'mark',
-        email: 'smoth@hj.cl'
-    }
-});
-/* MOCK AJAX CALL */
-
  export const setUserEmail = (email) => {
    return {
      type: SET_USER_EMAIL,
