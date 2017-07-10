@@ -3,7 +3,7 @@
  * Copyright 2017 Prottonne
  */
 
-import { getProfile } from '../action/user-action';
+import { getProfile, getUserImage } from '../action/user-action';
 import MySettings from '../route/MySettings';
 import { connect } from 'react-redux';
 
@@ -15,7 +15,8 @@ import { connect } from 'react-redux';
 
  const matchDispatchToProps = (dispatch) => {
    return   {
-     getProfile: (state) => dispatch(getProfile(state))
+     getProfile: (state) => dispatch(getProfile(state)),
+     getUserImage:(state) => dispatch(getUserImage(state))
    };
  }
 

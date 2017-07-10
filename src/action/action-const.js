@@ -9,4 +9,5 @@ export const LOGIN_PATH = 'auth/login';
 export const SET_USER_EMAIL = 'SET_USER_EMAIL';
 export const SET_USER_PASSWORD = 'SET_USER_PASSWORD';
 export const SET_USER = 'SET_USER';
-export const PROFILE_PATH = 'insurance/profile';
+export const USER_IMAGE_PATH = 'insurance/image/profile';
+export const SET_USER_IMAGE = 'SET_USER_IMAGE';

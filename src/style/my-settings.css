@@ -8,9 +8,21 @@
   max-height: 150px;
   margin: auto;
   margin-top: 20px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
 }
 .user-name {
   font-size: 20px;
   text-align: center;
   margin-top: 20px;
+}
+.user-email {
+  font-size: 20px;
+  text-align: center;
+  color: #164cce;
 }

@@ -6,7 +6,7 @@
  import {
    SET_USER_EMAIL, SET_USER_PASSWORD, SET_USER,
    AUTH_HEADER, LOGIN_PATH, AUTH_TOKEN_LOCAL_NAME,
-   PROFILE_PATH
+   SET_USER_IMAGE, USER_IMAGE_PATH
  } from '../action/action-const';
  import axios from 'axios';
  import jwtDecode from 'jwt-decode';
@@ -29,6 +29,13 @@
    return {
      type: SET_USER,
      payload: user
+   };
+ }
+
+ export const setUserImage = (image) => {
+   return {
+     type: SET_USER_IMAGE,
+     payload: image
    };
  }
 
@@ -56,6 +63,7 @@
          (res) => {
            const token = res.data.token;
            localStorage.setItem(AUTH_TOKEN_LOCAL_NAME, token);
+            setAuthToken(token);
            dispatch(setUser(jwtDecode(token).user));
          },
          (err) => {
@@ -82,13 +90,13 @@
     }
   }
 
-  export const getProfile = (state) => {
+  export const getUserImage = (state) => {
      return dispatch => {
-       return axios.post(PROFILE_PATH, state.user)
+       let req={userId:state.user.id};
+       return axios.post(USER_IMAGE_PATH, req)
         .then(
           (res) => {
-          //  dispatch(setUserFirstName(res.data.user.firstName));
-        //    dispatch(setUserLastName(res.data.user.lastName));
+            dispatch(setUserImage(res.data.image));
           },
           (err) => {
             if(err.response.data.message==='101'){
