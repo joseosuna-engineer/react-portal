@@ -15,13 +15,15 @@ export default class MySettings extends Component {
   render(){
     return(
       <div>
+        <div className="user-info">
             <Picture image={this.props.user.image} />
             <div className="user-name">
               <span>{this.props.user.firstName} {this.props.user.lastName}</span>
             </div>
             <div className="user-email">
-              <span className="">{this.props.user.email}</span>
+              <span>{this.props.user.email}</span>
             </div>
+        </div>
       </div>
     );
   }
