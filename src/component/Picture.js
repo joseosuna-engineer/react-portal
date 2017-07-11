@@ -17,8 +17,9 @@ export default class Picture extends Component {
       backgroundImage: 'url(' + this.props.image + ')',
     };
     return(
-      <div className="user-pic" style={divStyle} >
-
+      <div className="user-pic-border">
+        <div className="user-pic" style={divStyle} >
+        </div>
       </div>
     );
   }
