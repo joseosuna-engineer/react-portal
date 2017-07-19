@@ -10,7 +10,7 @@ export default class NavBar extends Component {
   constructor(props){
     super(props);
     this.state={
-      activeTabClassName:"insurance-icon"
+      activeTabClassName:"rental-icon"
     }
     this.logout = this.logout.bind(this);
     this.onClick = this.onClick.bind(this);
@@ -28,21 +28,29 @@ export default class NavBar extends Component {
   render(){
     return(
       <div className="fixed-bottom nav-bar-icon">
-        <nav className="navbar navbar-light bg-faded">
+        <nav className="navbar">
           <div className="row">
             <div className="col">
               <Link onClick={this.onClick} to="/">
                 <div className={
-                  (this.state.activeTabClassName === 'insurance-icon')
-                    ? 'insurance-icon active':'insurance-icon'
+                  (this.state.activeTabClassName === 'rental-icon')
+                    ? 'rental-icon active':'rental-icon'
                   } ></div>
               </Link>
             </div>
             <div className="col">
-              <Link onClick={this.onClick} to="/claim">
+              <Link onClick={this.onClick} to="/search">
+                <div className={
+                  (this.state.activeTabClassName === 'search-icon')
+                    ? 'search-icon active':'search-icon'
+                  } ></div>
+              </Link>
+            </div>
+            <div className="col">
+              <Link onClick={this.onClick} to="/invest">
               <div className={
-                (this.state.activeTabClassName === 'claim-icon')
-                  ? 'claim-icon active':'claim-icon'
+                (this.state.activeTabClassName === 'invest-icon')
+                  ? 'invest-icon active':'invest-icon'
                 } ></div>
               </Link>
             </div>
