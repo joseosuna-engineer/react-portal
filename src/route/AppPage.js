@@ -16,7 +16,7 @@ export default class AppPage extends Component {
     return(
       <Router>
         <div>
-          <Route exact path="/(settings|claim)?" component={Routes}/>
+          <Route exact path="/(settings|search|invest)?" component={Routes}/>
           <Route exact path="/login" component={LoginPage}/>
         </div>
       </Router>

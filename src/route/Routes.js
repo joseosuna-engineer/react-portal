@@ -7,10 +7,11 @@ import React, { Component } from 'react';
 import {
   Route
 } from 'react-router-dom';
-import MyInsurances from './MyInsurances';
+import MyRentalROI from './MyRentalROI';
 import MySettings from '../container/my-settings-container';
 import NavBar from '../container/nav-bar-container';
-import MyClaims from './MyClaims';
+import MyInvestments from './MyInvestments';
+import Search from './Search';
 
 export default class Routes extends Component {
   componentWillMount() {
@@ -20,9 +21,10 @@ export default class Routes extends Component {
     return(
       <div>
         <NavBar history={this.props.history} />
-        <Route exact path="/" component={MyInsurances}/>
+        <Route exact path="/" component={MyRentalROI}/>
         <Route exact path="/settings" component={MySettings}/>
-        <Route exact path="/claim" component={MyClaims}/>
+        <Route exact path="/invest" component={MyInvestments}/>
+        <Route exact path="/search" component={Search}/>
       </div>
     );
   }

@@ -5,11 +5,11 @@
 
 import React, { Component } from 'react';
 
-export default class MyInsurances extends Component {
+export default class Search extends Component {
   render(){
     return(
       <div>
-        Mis Seguros
+        Busqueda
       </div>
     );
   }

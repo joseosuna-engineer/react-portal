@@ -17,6 +17,7 @@ import { setAuthToken, setUser } from '../action/user-action';
 import { AUTH_TOKEN_LOCAL_NAME } from '../action/action-const';
 import jwtDecode from 'jwt-decode';
 require('../style/my-settings.css');
+require('../style/my-rental-roi.css');
 
 export default class IndexPage extends Component {
   componentWillMount() {

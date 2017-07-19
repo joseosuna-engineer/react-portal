@@ -5,11 +5,11 @@
 
 import React, { Component } from 'react';
 
-export default class MyClaims extends Component {
+export default class MyInvestments extends Component {
   render(){
     return(
       <div>
-        Mis Reclamos
+        Inversiones
       </div>
     );
   }
