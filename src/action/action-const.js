@@ -11,3 +11,11 @@ export const SET_USER_PASSWORD = 'SET_USER_PASSWORD';
 export const SET_USER = 'SET_USER';
 export const USER_IMAGE_PATH = 'insurance/image/profile';
 export const SET_USER_IMAGE = 'SET_USER_IMAGE';
+
+/* NAV PATH */
+export const RENTAL_NAV_PATH = '/';
+export const SEARCH_NAV_PATH = '/search';
+export const INVESTMENT_NAV_PATH = '/invest';
+export const SETTINGS_NAV_PATH = '/settings';
+export const LOGOUT_NAV_PATH = '/logout';
+export const LOGIN_NAV_PATH = '/login';

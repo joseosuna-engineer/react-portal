@@ -10,6 +10,9 @@ import {
 } from 'react-router-dom';
 import Routes from '../container/routes-container';
 import LoginPage from './LoginPage';
+import {
+  LOGIN_NAV_PATH
+} from '../action/action-const';
 
 export default class AppPage extends Component {
   render(){
@@ -17,7 +20,7 @@ export default class AppPage extends Component {
       <Router>
         <div>
           <Route exact path="/(settings|search|invest)?" component={Routes}/>
-          <Route exact path="/login" component={LoginPage}/>
+          <Route exact path={LOGIN_NAV_PATH} component={LoginPage}/>
         </div>
       </Router>
     );

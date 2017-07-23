@@ -6,8 +6,9 @@
  import {
    SET_USER_EMAIL, SET_USER_PASSWORD, SET_USER,
    AUTH_HEADER, LOGIN_PATH, AUTH_TOKEN_LOCAL_NAME,
-   SET_USER_IMAGE, USER_IMAGE_PATH
- } from '../action/action-const';
+   SET_USER_IMAGE, USER_IMAGE_PATH, LOGIN_NAV_PATH,
+   RENTAL_NAV_PATH
+ } from './action-const';
  import axios from 'axios';
  import jwtDecode from 'jwt-decode';
 
@@ -52,7 +53,7 @@
      localStorage.removeItem(AUTH_TOKEN_LOCAL_NAME);
      setAuthToken(false);
      dispatch(setUser({}));
-     history.push('/login');
+     history.push(LOGIN_NAV_PATH);
    }
  }
 
@@ -77,7 +78,7 @@
   export const goHome = (state) => {
     return dispatch => {
         if(state.user.auth){
-          state.history.push('/');
+          state.history.push(RENTAL_NAV_PATH);
         }
      }
   }
@@ -85,7 +86,7 @@
   export const requiredAuth = (state) => {
     return dispatch => {
       if(!state.user.auth){
-        state.history.push('/login');
+        state.history.push(LOGIN_NAV_PATH);
       }
     }
   }

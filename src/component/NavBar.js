@@ -5,6 +5,10 @@
 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {
+  RENTAL_NAV_PATH, SEARCH_NAV_PATH, INVESTMENT_NAV_PATH,
+  SETTINGS_NAV_PATH, LOGOUT_NAV_PATH
+} from '../action/action-const';
 
 export default class NavBar extends Component {
   constructor(props){
@@ -31,7 +35,7 @@ export default class NavBar extends Component {
         <nav className="navbar">
           <div className="row">
             <div className="col">
-              <Link onClick={this.onClick} to="/">
+              <Link onClick={this.onClick} to={RENTAL_NAV_PATH}>
                 <div className={
                   (this.state.activeTabClassName === 'rental-icon')
                     ? 'rental-icon active':'rental-icon'
@@ -39,7 +43,7 @@ export default class NavBar extends Component {
               </Link>
             </div>
             <div className="col">
-              <Link onClick={this.onClick} to="/search">
+              <Link onClick={this.onClick} to={SEARCH_NAV_PATH}>
                 <div className={
                   (this.state.activeTabClassName === 'search-icon')
                     ? 'search-icon active':'search-icon'
@@ -47,7 +51,7 @@ export default class NavBar extends Component {
               </Link>
             </div>
             <div className="col">
-              <Link onClick={this.onClick} to="/invest">
+              <Link onClick={this.onClick} to={INVESTMENT_NAV_PATH}>
               <div className={
                 (this.state.activeTabClassName === 'invest-icon')
                   ? 'invest-icon active':'invest-icon'
@@ -55,7 +59,7 @@ export default class NavBar extends Component {
               </Link>
             </div>
             <div className="col">
-              <Link onClick={this.onClick} to="/settings">
+              <Link onClick={this.onClick} to={SETTINGS_NAV_PATH}>
               <div className={
                 (this.state.activeTabClassName === 'settings-icon')
                   ? 'settings-icon active':'settings-icon'
@@ -63,7 +67,7 @@ export default class NavBar extends Component {
               </Link>
             </div>
             <div className="col">
-              <Link onClick={this.logout} to="/logout">
+              <Link onClick={this.logout} to={LOGOUT_NAV_PATH}>
                 <div className="exit-icon"></div>
               </Link>
             </div>
