@@ -9,7 +9,7 @@ export default class Search extends Component {
   render(){
     return(
       <div>
-        Busqueda
+        Busqueda-contenido
       </div>
     );
   }
