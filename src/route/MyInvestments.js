@@ -9,7 +9,7 @@ export default class MyInvestments extends Component {
   render(){
     return(
       <div>
-        Inversiones
+        Inversiones-contenido
       </div>
     );
   }

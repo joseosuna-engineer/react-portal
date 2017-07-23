@@ -12,6 +12,7 @@ import MySettings from '../container/my-settings-container';
 import NavBar from '../container/nav-bar-container';
 import MyInvestments from './MyInvestments';
 import Search from './Search';
+import Header from '../component/Header';
 
 export default class Routes extends Component {
   componentWillMount() {
@@ -20,6 +21,7 @@ export default class Routes extends Component {
   render(){
     return(
       <div>
+        <Header />
         <NavBar history={this.props.history} />
         <Route exact path="/" component={MyRentalROI}/>
         <Route exact path="/settings" component={MySettings}/>
