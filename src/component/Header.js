@@ -53,13 +53,26 @@ export default class Header extends Component {
 
   }
   render(){
+    let hearderIndicator;
+    if(SEARCH_NAV_PATH===this.props.history.location.pathname){
+      hearderIndicator = (
+        <form className="header-search-form">
+          <input type="text"  maxLength="24" size="24" placeholder={`${this.state.label}`} />
+        </form>
+      )
+    }else{
+      hearderIndicator = (
+        <div className="hearder-inicator-label">
+          <span>{`${this.state.label}`}</span>
+        </div>
+      )
+    }
+
     return(
       <div>
         <div className="header-indicator">
           <div className={this.state.activeTabClassName}></div>
-            <form className="header-search-form">
-              <input type="text"  maxLength="24" size="24" placeholder={this.state.label}/>
-            </form>
+            { hearderIndicator }
         </div>
         <div className="header-summary">
         </div>
