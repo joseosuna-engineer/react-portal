@@ -9,7 +9,9 @@ export default class Picture extends Component {
   constructor(props){
     super(props);
     this.state={
-      image:props.image
+      image:props.image,
+      borderStyleName:props.borderStyleName,
+      styleName:props.styleName
     }
   }
   render(){
@@ -17,8 +19,8 @@ export default class Picture extends Component {
       backgroundImage: 'url(' + this.props.image + ')',
     };
     return(
-      <div className="user-pic-border">
-        <div className="user-pic" style={divStyle} >
+      <div className={this.state.borderStyleName}>
+        <div className={this.state.styleName} style={divStyle} >
         </div>
       </div>
     );

@@ -2,3 +2,32 @@
  *
  * Copyright 2017 Prottonne
  */
+ .invest-pic {
+   margin-left: 8px;
+   width: 64px;
+   height: 64px;
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-size: cover;
+   top: 12px;
+   position: relative;
+ }
+
+ .invest-pic-border {
+   display: inline-block;
+ }
+.header-summary-content{
+  color: black;
+  position: fixed;
+  display: inline-block;
+  margin-left: 16px;
+  margin-top: 8px;
+}
+
+.header-summary-content input{
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    width: 216px;
+}
