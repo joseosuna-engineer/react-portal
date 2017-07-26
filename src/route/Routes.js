@@ -12,7 +12,6 @@ import MySettings from '../container/my-settings-container';
 import NavBar from '../container/nav-bar-container';
 import MyInvestments from './MyInvestments';
 import Search from './Search';
-import Header from '../component/Header';
 import {
   RENTAL_NAV_PATH, SEARCH_NAV_PATH, INVESTMENT_NAV_PATH,
   SETTINGS_NAV_PATH
@@ -25,7 +24,6 @@ export default class Routes extends Component {
   render(){
     return(
       <div>
-        <Header history={this.props.history} />
         <NavBar history={this.props.history} />
         <Route exact path={RENTAL_NAV_PATH} component={MyRentalROI}/>
         <Route exact path={SETTINGS_NAV_PATH} component={MySettings}/>
