@@ -3,6 +3,7 @@
  * Copyright 2017 Prottonne
  */
 
+/* USER */
 export const AUTH_TOKEN_LOCAL_NAME = '__vrfeqFpHOe__';
 export const AUTH_HEADER = 'Authorization';
 export const LOGIN_PATH = 'auth/login';
@@ -19,3 +20,8 @@ export const INVESTMENT_NAV_PATH = '/invest';
 export const SETTINGS_NAV_PATH = '/settings';
 export const LOGOUT_NAV_PATH = '/logout';
 export const LOGIN_NAV_PATH = '/login';
+
+/* RENTAL */
+export const SET_RENTAL_INCOME = 'SET_RENTAL_INCOME';
+export const SET_RENTAL_ADDRESS = 'SET_RENTAL_ADDRESS';
+export const SET_RENTAL_SETTINGS = 'SET_RENTAL_SETTINGS';

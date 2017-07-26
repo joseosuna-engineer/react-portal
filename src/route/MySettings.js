@@ -17,7 +17,11 @@ export default class MySettings extends Component {
     const HeaderContent = () => {
       return(
         <div className="user-info">
-            <Picture image={this.props.user.image} />
+            <Picture
+              image={this.props.user.image}
+              borderStyleName="user-pic-border"
+              styleName="user-pic"
+              />
             <div className="user-name">
               <span>{this.props.user.firstName} {this.props.user.lastName}</span>
             </div>

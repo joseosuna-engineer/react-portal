@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 import {
   Route
 } from 'react-router-dom';
-import MyRentalROI from './MyRentalROI';
+import MyRentalROI from '../container/my-rental-roi-container';
 import MySettings from '../container/my-settings-container';
 import NavBar from '../container/nav-bar-container';
 import MyInvestments from './MyInvestments';
