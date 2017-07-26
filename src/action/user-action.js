@@ -58,8 +58,12 @@
  }
 
  export const login = (state) => {
+   let user = {
+     email: state.user.email,
+     password: state.user.password
+   }
     return dispatch => {
-      return axios.post(LOGIN_PATH, state.user)
+      return axios.post(LOGIN_PATH, user)
        .then(
          (res) => {
            const token = res.data.token;

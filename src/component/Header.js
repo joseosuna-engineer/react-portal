@@ -67,7 +67,7 @@ export default class Header extends Component {
         </div>
       )
     }
-
+    const Content = this.props.content;
     return(
       <div>
         <div className="header-indicator">
@@ -75,6 +75,7 @@ export default class Header extends Component {
             { hearderIndicator }
         </div>
         <div className="header-summary">
+          <Content />
         </div>
       </div>
     );
