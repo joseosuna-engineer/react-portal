@@ -5,7 +5,7 @@
 
 import MyRentalROI from '../route/MyRentalROI';
 import {
-  setRentalAddress, setRentalIncome, setRetalSettings
+  setRentalAddress, setRentalIncome, setRetalValue
 } from '../action/rental-action';
 import { connect } from 'react-redux';
 
@@ -19,7 +19,7 @@ import { connect } from 'react-redux';
    return   {
      setRentalAddress: (address) => dispatch(setRentalAddress(address)),
      setRentalIncome: (income) => dispatch(setRentalIncome(income)),
-     setRetalSettings: (settings) => dispatch(setRetalSettings(settings))
+     setRetalValue: (value) => dispatch(setRetalValue(value))
    };
  }
 
