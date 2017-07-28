@@ -28,8 +28,8 @@ export default class MyRentalROI extends Component {
         this.props.setRentalAddress(value);
         break;
 
-      case "rentalSettings":
-        this.props.setRetalSettings(value);
+      case "rentalValue":
+        this.props.setRetalValue(value);
         break;
 
       default:
@@ -67,9 +67,9 @@ export default class MyRentalROI extends Component {
                 type="text"
                 style={{fontSize:'10px',color:'#464a4c'}}
                 onChange={this.onChange}
-                placeholder="Equipamiento"
-                value={this.props.rental.settings}
-                name="rentalSettings" />
+                placeholder="Valor"
+                value={this.props.rental.value}
+                name="rentalValue" />
             </form>
           </div>
       </div>
@@ -77,12 +77,94 @@ export default class MyRentalROI extends Component {
   }
 
   render(){
-
-
     return(
       <div>
         <Header history={this.props.history} content={this.getHeaderContent} />
-        ROI-contenido
+        <div id="accordion" role="tablist" aria-multiselectable="true">
+          <div role="tab" id="headingOne" style={{fontSize:'12px',textAlign:'center', marginTop:'8px'}}>
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <span><b>Egresos Mensuales</b></span>
+              </a>
+          </div>
+          <div id="collapseOne" className="collapse show" role="tabpanel" aria-labelledby="headingOne">
+            <div className="invest-expenses-label">
+              <label htmlFor="rentalTax">Impuestos</label>
+              <label htmlFor="rentalInsurance">Seguros</label>
+              <label htmlFor="rentalCommonExpenses">Gastos comunes</label>
+              <label htmlFor="rentalVacancy">Publicidad</label>
+              <label htmlFor="rentalRepairs">Reparaciones</label>
+              <label htmlFor="rentalMaintenance">Mantenimiento</label>
+              <label htmlFor="rentalMortgage">Hipoteca</label>
+            </div>
+            <div className="invest-expenses">
+              <input
+                type="text"
+                onChange={this.onChange}
+
+                value={this.props.rental.tax}
+                name="rentalTax" />
+                <input
+                  type="text"
+                  onChange={this.onChange}
+
+                  value={this.props.rental.insurance}
+                  name="rentalInsurance" />
+                  <input
+                    type="text"
+                    onChange={this.onChange}
+
+                    value={this.props.rental.commonexpenses}
+                    name="rentalCommonExpenses" />
+                    <input
+                      type="text"
+                      onChange={this.onChange}
+
+                      value={this.props.rental.vacancy}
+                      name="rentalVacancy" />
+                      <input
+                        type="text"
+                        onChange={this.onChange}
+
+                        value={this.props.rental.repairs}
+                        name="rentalRepairs" />
+                        <input
+                          type="text"
+                          onChange={this.onChange}
+
+                          value={this.props.rental.maintenance}
+                          name="rentalMaintenance" />
+                          <input
+                            type="text"
+                            onChange={this.onChange}
+
+                            value={this.props.rental.mortgage}
+                            name="rentalMortgage" />
+            </div>
+            <div style={{marginTop:'8px',marginLeft:'16px'}} >
+              <span>Total Egresos Mensuales: <strong>{this.props.rental.expenses}</strong></span>
+            </div>
+          </div>
+          <div role="tab" id="headingTwo" style={{fontSize:'12px',textAlign:'center', marginTop:'8px'}}>
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <span><b>Ganancias Mensuales</b></span>
+              </a>
+          </div>
+          <div id="collapseTwo" className="collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div>
+            CONTENIDO 2
+            </div>
+          </div>
+          <div role="tab" id="headingThree" style={{fontSize:'12px',textAlign:'center', marginTop:'8px'}}>
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <span><b>Retorno de Inversión</b></span>
+              </a>
+          </div>
+          <div id="collapseThree" className="collapse" role="tabpanel" aria-labelledby="headingThree">
+            <div>
+            CONTENIDO 3
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

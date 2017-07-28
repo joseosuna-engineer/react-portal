@@ -4,7 +4,7 @@
  */
 
  import {
-   SET_RENTAL_INCOME, SET_RENTAL_ADDRESS, SET_RENTAL_SETTINGS
+   SET_RENTAL_INCOME, SET_RENTAL_ADDRESS, SET_RENTAL_VALUE
  } from './action-const';
 
 
@@ -22,9 +22,9 @@
    }
  }
 
- export const setRetalSettings = (settings) => {
+ export const setRetalValue = (value) => {
    return {
-     type: SET_RENTAL_SETTINGS,
-     payload: settings
+     type: SET_RENTAL_VALUE,
+     payload: value
    };
  }

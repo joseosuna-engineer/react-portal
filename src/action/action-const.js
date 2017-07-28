@@ -24,4 +24,4 @@ export const LOGIN_NAV_PATH = '/login';
 /* RENTAL */
 export const SET_RENTAL_INCOME = 'SET_RENTAL_INCOME';
 export const SET_RENTAL_ADDRESS = 'SET_RENTAL_ADDRESS';
-export const SET_RENTAL_SETTINGS = 'SET_RENTAL_SETTINGS';
+export const SET_RENTAL_VALUE = 'SET_RENTAL_VALUE';
