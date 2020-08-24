@@ -6,9 +6,11 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import  userReducer from './user-reducer';
 import thunk from 'redux-thunk';
+import  rentalReducer from './rental-reducer';
 
 const reducers = combineReducers({
-  user: userReducer
+  user: userReducer,
+  rental: rentalReducer
 });
 
 const middleware = applyMiddleware(thunk);

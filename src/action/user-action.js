@@ -4,10 +4,13 @@
  */
 
  import {
-   SET_USER_EMAIL, SET_USER_PASSWORD, SET_USER_AUTH,
-   AUTH_HEADER, LOGIN_PATH, AUTH_TOKEN_LOCAL_NAME
- } from '../action/action-const';
+   SET_USER_EMAIL, SET_USER_PASSWORD, SET_USER,
+   AUTH_HEADER, LOGIN_PATH, AUTH_TOKEN_LOCAL_NAME,
+   SET_USER_IMAGE, USER_IMAGE_PATH, LOGIN_NAV_PATH,
+   RENTAL_NAV_PATH
+ } from './action-const';
  import axios from 'axios';
+ import jwtDecode from 'jwt-decode';
 
  export const setUserEmail = (email) => {
    return {
@@ -23,10 +26,17 @@
    }
  }
 
- export const setUserAuth = (token) => {
+ export const setUser = (user) => {
    return {
-     type: SET_USER_AUTH,
-     payload: token
+     type: SET_USER,
+     payload: user
+   };
+ }
+
+ export const setUserImage = (image) => {
+   return {
+     type: SET_USER_IMAGE,
+     payload: image
    };
  }
 
@@ -38,37 +48,66 @@
    }
  }
 
- export const logout = () => {
+ export const logout = (history) => {
    return dispatch => {
      localStorage.removeItem(AUTH_TOKEN_LOCAL_NAME);
      setAuthToken(false);
-     dispatch(setUserAuth());
-     dispatch(setUserEmail());
-     dispatch(setUserPassword());
+     dispatch(setUser({}));
+     history.push(LOGIN_NAV_PATH);
    }
  }
 
- export const login = (user) => {
+ export const login = (state) => {
+   let user = {
+     email: state.user.email,
+     password: state.user.password
+   }
     return dispatch => {
       return axios.post(LOGIN_PATH, user)
        .then(
          (res) => {
            const token = res.data.token;
            localStorage.setItem(AUTH_TOKEN_LOCAL_NAME, token);
-           setAuthToken(token);
-           dispatch(setUserAuth(token));
+            setAuthToken(token);
+           dispatch(setUser(jwtDecode(token).user));
          },
          (err) => {
-           logout();
+           localStorage.removeItem(AUTH_TOKEN_LOCAL_NAME);
+           setAuthToken(false);
          }
        );
     }
   }
 
+  export const goHome = (state) => {
+    return dispatch => {
+        if(state.user.auth){
+          state.history.push(RENTAL_NAV_PATH);
+        }
+     }
+  }
+
   export const requiredAuth = (state) => {
     return dispatch => {
-      if(!state.user.isAuth){
-        state.history.push('/login');
+      if(!state.user.auth){
+        state.history.push(LOGIN_NAV_PATH);
       }
     }
   }
+
+  export const getUserImage = (state) => {
+     return dispatch => {
+       let req={userId:state.user.id};
+       return axios.post(USER_IMAGE_PATH, req)
+        .then(
+          (res) => {
+            dispatch(setUserImage(res.data.image));
+          },
+          (err) => {
+            if(err.response.data.message==='101'){
+              dispatch(logout(state.history));
+            }
+          }
+        );
+     }
+   }

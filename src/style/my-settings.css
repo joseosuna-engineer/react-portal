@@ -1,0 +1,49 @@
+/**
+ *
+ * Copyright 2017 Prottonne
+ */
+
+.user-pic {
+  margin: auto;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  top: 2px;
+  position: relative;
+  background-color: white;
+}
+
+.user-pic-border {
+  margin: auto;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background-color: black;
+  background-size: cover;
+  top: 2px;
+  position: relative;
+}
+
+.user-name {
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 1px;
+  color: black;
+  position: relative;
+  top: 1px;
+}
+
+.user-email {
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 1px;
+  position: relative;
+  top: 8px;
+}
+
+.user-info {
+  width: 100%;
+}

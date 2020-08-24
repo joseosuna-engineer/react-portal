@@ -1,6 +1,11 @@
+/**
+ *
+ * Copyright 2017 Prottonne
+ */
+
 body, html {
     width: 100%;
-    background-color: #eee;
+    background-color: #FFFFFF;
     margin: 0;
     font-size: 14px;
 
@@ -63,7 +68,7 @@ h1 {
   border-top-right-radius: 0;
 }
 
-.login-logo-svg{
+.login-logo-svg svg{
   display: inline-block;
   fill: currentcolor;
   height: 2.25em;

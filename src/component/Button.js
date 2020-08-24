@@ -9,13 +9,20 @@ export default class Button extends Component {
   constructor(props){
     super(props);
     this.state={
-      label:props.label
+      label:props.label,
+      type:props.type,
+      styleName:props.styleName
     };
   }
   render(){
     return(
       <div>
-        <button type="submit" className="btn btn-lg btn-primary btn-block">{this.props.label}</button>
+        <button
+          type={this.state.type}
+          className={this.state.styleName}
+        >
+          {this.state.label}
+        </button>
       </div>
     );
   }
