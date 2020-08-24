@@ -1,0 +1,97 @@
+/**
+ *
+ * Copyright 2017 Prottonne
+ */
+
+body, html {
+    width: 100%;
+    background-color: #FFFFFF;
+    margin: 0;
+    font-size: 14px;
+
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+h1 {
+  font-weight: lighter;
+    font-size: 1.3rem;
+    padding-top: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+
+@media screen and (min-width: 370px) {
+  html, h1 {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  html,h1 {
+    font-size: 1.4rem;
+  }
+}
+
+
+.form-signin {
+  width: 100%;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.login-logo-svg svg{
+  display: inline-block;
+  fill: currentcolor;
+  height: 2.25em;
+  max-width: 100%;
+  position: relative;
+  user-select: none;
+  vertical-align: text-bottom;
+    margin: 0 auto;
+    width: 100%;
+}
+.container{
+      margin-top: 1.3125rem;
+          max-width: 600px !important;
+          padding: 0 0.65625rem;
+
+}
+
+.login-header{
+  width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.form-signin div {
+      padding-bottom: 1rem;
+}
